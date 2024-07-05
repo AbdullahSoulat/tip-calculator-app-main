@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <img src="images/logo.svg" alt="logo">
+      <div class="container">
+        <div class="left">
+          <div>
+            <h4>Bill</h4>
+          <div class="bill">
+            <label class="tip-amount" for="tip-amount"><img src="images/icon-dollar.svg" alt=""></label>
+            <input id="tip-amount" type="text" required placeholder="0">
+          </div>
+          </div>
+          
+          <div>
+            <h4>Select Tip %</h4>
+          <div class="tip-percent-grid">
+            <h3>5%</h3>
+            <h3>10%</h3>
+            <h3>15%</h3>
+            <h3>25%</h3>
+            <h3>50%</h3>
+            <input class="custom-tip" type="text" placeholder="Custom">
+            <!-- <h3>Custom</h3> -->
+          </div>
+          </div>
+
+          <div>
+            <h4>Number of People</h4>
+          <div class="people">
+            <label class="num-of-people" for="num-of-people"><img src="images/icon-person.svg" alt=""></label>
+            <input type="text" required placeholder="0">
+          </div>
+          </div>
+          
+          
+        </div>
+
+        <div class="right">
+          <div>
+            <div class="flex">
+              <h4><span>Tip Amount</span><br>/ person</h4>
+              <h1>$4.27</h1>
+            </div>
+            <div class="flex">
+              <h4><span>Total</span><br>/ person</h4>
+              <h1>$32.79</h1>
+            </div>
+          </div>
+          <button>RESET</button>
+        </div>
+
+      </div>
+    </div>
+    
+    
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>
