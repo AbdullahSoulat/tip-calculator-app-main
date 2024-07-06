@@ -123,7 +123,7 @@ input:focus {
 
 .custom-tip {
   margin: 0;
-  padding: 2px;
+  padding: 2px 14px;
 }
 
 .custom-tip::placeholder {
@@ -188,6 +188,11 @@ input:focus {
   margin-bottom: 1em;
 }
 
+.flex-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
 h1 {
   font-size: 3rem;
 }
@@ -204,7 +209,16 @@ button {
   padding: 7px;
   border-radius: 5px;
   color: var(--clr-very-dark-cyan);
+}
+
+button:hover {
   cursor: pointer;
+  background-color: #9fe8df;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .attribution {

@@ -31,31 +31,35 @@
         <div class="left">
           <div>
             <h4>Bill</h4>
-          <div class="bill">
+          <form class="bill">
             <label class="tip-amount" for="tip-amount"><img src="images/icon-dollar.svg" alt=""></label>
-            <input id="tip-amount" type="text" required placeholder="0">
-          </div>
+            <input id="bill" type="text" required placeholder="0">
+          </form>
           </div>
           
           <div>
             <h4>Select Tip %</h4>
           <div class="tip-percent-grid">
-            <h3>5%</h3>
-            <h3>10%</h3>
-            <h3>15%</h3>
-            <h3>25%</h3>
-            <h3>50%</h3>
-            <input class="custom-tip" type="text" placeholder="Custom">
+            <h3 id="tipAmount">5%</h3>
+            <h3 id="tipAmount">10%</h3>
+            <h3 id="tipAmount">15%</h3>
+            <h3 id="tipAmount">25%</h3>
+            <h3 id="tipAmount">50%</h3>
+            <input id="customTip" class="custom-tip" type="text" placeholder="Custom">
             <!-- <h3>Custom</h3> -->
           </div>
           </div>
 
           <div>
-            <h4>Number of People</h4>
-          <div class="people">
+            <div class="flex-2">
+              <h4>Number of People</h4>
+              <h4 id="errorMsg" class="hidden" style="color: red">Can't be zero</h4>
+            </div>
+
+          <form class="people">
             <label class="num-of-people" for="num-of-people"><img src="images/icon-person.svg" alt=""></label>
-            <input type="text" required placeholder="0">
-          </div>
+            <input id="numOfPeople" type="text" required placeholder="0">
+          </form>
           </div>
           
           
@@ -65,14 +69,14 @@
           <div>
             <div class="flex">
               <h4><span>Tip Amount</span><br>/ person</h4>
-              <h1>$4.27</h1>
+              <h1 id="tipPerPerson">$0.00</h1>
             </div>
             <div class="flex">
               <h4><span>Total</span><br>/ person</h4>
-              <h1>$32.79</h1>
+              <h1 id="totalPerPerson">$0.00</h1>
             </div>
           </div>
-          <button>RESET</button>
+          <button onclick="resetCalculator()">RESET</button>
         </div>
 
       </div>
