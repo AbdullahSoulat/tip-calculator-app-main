@@ -11,31 +11,54 @@ const inputElements = document.querySelectorAll('input');
 const givenTipAmounts = document.querySelectorAll('[id = "tipAmount"]');
 
 const errorMsg = document.getElementById('errorMsg');
+let currentGivenTip = document.getElementById('tipAmount');
+let previousGivenTip = document.getElementById('tipAmount');
+let selectedTip = '';
+let customTipSelected = true;
 
 // Calcuting tip per person and total per person
 function calculateTotal(bill, people, tip) {
-    console.log(numOfPeople.value);
-    let total = ((Number(bill) * Number(tip) / 100) + Number(bill)) / Number(people);
-    let thisTip = (Number(bill) * Number(tip) / 100) / Number(people);
-    total = roundToTwo(total);
-    thisTip = roundToTwo(thisTip);
-    tipPerPerson.innerHTML = "$"+thisTip;
-    totalPerPerson.innerHTML = "$"+total;
+    const total = ((Number(bill) * Number(tip) / 100) + Number(bill)) / Number(people);
+    const thisTip = (Number(bill) * Number(tip) / 100) / Number(people);
+    tipPerPerson.innerHTML = "$" + roundToTwo(thisTip);
+    totalPerPerson.innerHTML = "$" + roundToTwo(total);
 }
 
 inputElements.forEach((element) => {
     element.addEventListener('input', (e) => {
-        if (bill.value != "" && numOfPeople.value != "" && customTip.value != "") {
-            calculateTotal(bill.value, numOfPeople.value, customTip.value);
+        // Only display output if all inputs have been made
+        if (bill.value != "" && numOfPeople.value != "" && (customTip.value != "" || selectedTip != "")) {
+            if (selectedTip != "") {
+                calculateTotal(bill.value, numOfPeople.value, selectedTip);
+            } else {
+                calculateTotal(bill.value, numOfPeople.value, customTip.value);
+            } 
         }
     })
 })
 
-
 givenTipAmounts.forEach((tip) => {
     tip.addEventListener('click', (e) => {
-        e.target.style.backgroundColor = 'red';
+        customTipSelected = false;
+
+        previousGivenTip = currentGivenTip;
+        previousGivenTip.style.backgroundColor = 'hsl(183, 100%, 15%)';
+        previousGivenTip.style.color = 'white';
+
+        currentGivenTip = e.target;
+        currentGivenTip.style.backgroundColor = 'hsl(172, 67%, 45%)';
+        currentGivenTip.style.color = 'hsl(183, 100%, 15%)';
+
+        selectedTip = currentGivenTip.innerHTML.slice(0, -1);
+        customTip.value = "";
     })
+})
+
+customTip.addEventListener('click', (e) => {
+    customTipSelected = true;
+    selectedTip = "";
+    currentGivenTip.style.backgroundColor = 'hsl(183, 100%, 15%)';
+    currentGivenTip.style.color = 'white';
 })
 
 // Displaying if number of people is zero
