@@ -27,13 +27,7 @@ function calculateTotal(bill, people, tip) {
 inputElements.forEach((element) => {
     element.addEventListener('input', (e) => {
         // Only display output if all inputs have been made
-        if (bill.value != "" && numOfPeople.value != "" && (customTip.value != "" || selectedTip != "")) {
-            if (selectedTip != "") {
-                calculateTotal(bill.value, numOfPeople.value, selectedTip);
-            } else {
-                calculateTotal(bill.value, numOfPeople.value, customTip.value);
-            } 
-        }
+        output();
     })
 })
 
@@ -51,6 +45,7 @@ givenTipAmounts.forEach((tip) => {
 
         selectedTip = currentGivenTip.innerHTML.slice(0, -1);
         customTip.value = "";
+        output();
     })
 })
 
@@ -91,4 +86,14 @@ function resetCalculator() {
     inputElements.forEach((input) => {
         input.value = "";
     })
+}
+
+function output() {
+    if (bill.value != "" && numOfPeople.value != "" && (customTip.value != "" || selectedTip != "")) {
+        if (selectedTip != "") {
+            calculateTotal(bill.value, numOfPeople.value, selectedTip);
+        } else {
+            calculateTotal(bill.value, numOfPeople.value, customTip.value);
+        } 
+    }
 }
